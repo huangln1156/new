@@ -95,6 +95,18 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        popupWindow.showAsDropDown(view, -view.getWidth(), view.getHeight() / 10 - DpPxUtil.getPxByDp(6));
 //
 //    }
+private void showPopBottom(){
+    PopupWindow popupWindow = new PopupWindow(this);
+    View content_view = LayoutInflater.from(this).inflate(R.layout.pop_layout1, null);
+    popupWindow.setContentView(content_view);
+    popupWindow.setFocusable(true);
+    popupWindow.setOutsideTouchable(false);
+    popupWindow.setBackgroundDrawable(null);
+    content_view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+    popupWindow.showAsDropDown(more, -content_view.getMeasuredWidth() + more.getWidth(), -content_view.getMeasuredHeight()/3);
+    //popupWindow.showAsDropDown(more);
+
+}
     public void netIsAvailable(Netwrok netEvent) {
         if (netEvent == Netwrok.NONE) {
             showNoNetDialog();
