@@ -1,19 +1,14 @@
 package com.keeplive.my.retomedesktop;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
-import com.keeplive.my.retomedesktop.wiget.DpPxUtil;
 import com.keeplive.my.retomedesktop.wiget.LoadingDialog;
 
 
@@ -97,13 +92,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 //    }
 private void showPopBottom(){
     PopupWindow popupWindow = new PopupWindow(this);
-    View content_view = LayoutInflater.from(this).inflate(R.layout.pop_layout1, null);
-    popupWindow.setContentView(content_view);
+   // View content_view = LayoutInflater.from(this).inflate(R.layout.pop_layout1, null);
+    //popupWindow.setContentView(content_view);
     popupWindow.setFocusable(true);
     popupWindow.setOutsideTouchable(false);
     popupWindow.setBackgroundDrawable(null);
-    content_view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-    popupWindow.showAsDropDown(more, -content_view.getMeasuredWidth() + more.getWidth(), -content_view.getMeasuredHeight()/3);
+  //  content_view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+ //   popupWindow.showAsDropDown(more, -content_view.getMeasuredWidth() + more.getWidth(), -content_view.getMeasuredHeight()/3);
     //popupWindow.showAsDropDown(more);
 
 }
