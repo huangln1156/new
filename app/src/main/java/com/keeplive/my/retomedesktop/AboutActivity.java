@@ -2,7 +2,6 @@ package com.keeplive.my.retomedesktop;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.keeplive.my.retomedesktop.wiget.VerifyCodeView;
 
