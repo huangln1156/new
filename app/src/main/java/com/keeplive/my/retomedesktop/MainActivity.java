@@ -160,6 +160,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(MainActivity.this, com.keeplive.my.retomedesktop.privacy.MainActivity.class));
                 break;
             case R.id.meun_two:
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 break;
         }
 

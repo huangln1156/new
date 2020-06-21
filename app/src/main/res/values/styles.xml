@@ -57,4 +57,15 @@
         <!--显示区域以外是否使用黑色半透明背景-->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+    <style name="textview_style">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">41dp</item>
+        <item name="android:singleLine">true</item>
+        <!--<item name="android:background">@mipmap/ic_launcher</item>-->
+        <item name="android:gravity">center</item>
+        <item name="android:text">O</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

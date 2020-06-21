@@ -124,6 +124,11 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         spannedString.setSpan(clickableSpan2, index2, index2 + key2.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+      //  int SPAN_EXCLUSIVE_EXCLUSIVE = 33; //在Span前后输入的字符都不应用Span效果
+       // int SPAN_EXCLUSIVE_INCLUSIVE = 34; //在Span前面输入的字符不应用Span效果，后面输入的字符应用Span效果
+       // int SPAN_INCLUSIVE_EXCLUSIVE = 17; //在Span前面输入的字符应用Span效果，后面输入的字符不应用Span效果
+       // int SPAN_INCLUSIVE_INCLUSIVE = 18; //在Span前后输入的字符都应用Span效果
+
 
         //设置点击后的颜色为透明，否则会一直出现高亮
         tv_privacy_tips.setHighlightColor(Color.TRANSPARENT);

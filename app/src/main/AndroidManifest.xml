@@ -3,7 +3,8 @@
     package="com.keeplive.my.retomedesktop">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".DesktopApplication"
         android:allowBackup="true"
@@ -22,6 +23,7 @@
         <activity android:name=".privacy.MainActivity" />
         <activity android:name=".privacy.PrivacyPolicyActivity" />
         <activity android:name=".privacy.TermsActivity" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>
