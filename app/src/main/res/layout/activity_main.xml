@@ -16,6 +16,7 @@
         android:overScrollMode="never" />
 
     <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_gravity="top"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize">
@@ -36,9 +37,10 @@
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/back"
                 android:gravity="center"
-                android:text="远程服务" />
+                android:text="远程" />
 
             <ImageView
+                android:id="@+id/more"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"

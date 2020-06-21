@@ -19,6 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".privacy.MainActivity" />
+        <activity android:name=".privacy.PrivacyPolicyActivity" />
+        <activity android:name=".privacy.TermsActivity" />
     </application>
 
 </manifest>
