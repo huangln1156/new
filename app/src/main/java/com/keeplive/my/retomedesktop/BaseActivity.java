@@ -32,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
-     //当没有网络时，点击不处理事件，且显示没有网络的提示
+    //当没有网络时，点击不处理事件，且显示没有网络的提示
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
@@ -41,6 +41,10 @@ public abstract class BaseActivity extends AppCompatActivity {
                 if (NetWorkUtil.checkNetwork() == Netwrok.NONE) {
                     showNoNetDialog();
                     return false;
+                } else {
+                    if (messageDialog != null && messageDialog.isShowing()) {
+                        messageDialog.dismiss();
+                    }
                 }
                 break;
         }
@@ -75,7 +79,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         dialogView.findViewById(R.id.button_confirm).setOnClickListener(onClickListener);
         messageDialog.show();
     }
-//    private void showTip(View view, String tip) {
+
+    //    private void showTip(View view, String tip) {
 //        View popupWindowView = getLayoutInflater().inflate(R.layout.qqcp_qp, null);
 //        TextView api_status = popupWindowView.findViewById(R.id.qp_get_api_status);
 //        api_status.setText(tip);
@@ -90,18 +95,19 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        popupWindow.showAsDropDown(view, -view.getWidth(), view.getHeight() / 10 - DpPxUtil.getPxByDp(6));
 //
 //    }
-private void showPopBottom(){
-    PopupWindow popupWindow = new PopupWindow(this);
-   // View content_view = LayoutInflater.from(this).inflate(R.layout.pop_layout1, null);
-    //popupWindow.setContentView(content_view);
-    popupWindow.setFocusable(true);
-    popupWindow.setOutsideTouchable(false);
-    popupWindow.setBackgroundDrawable(null);
-  //  content_view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
- //   popupWindow.showAsDropDown(more, -content_view.getMeasuredWidth() + more.getWidth(), -content_view.getMeasuredHeight()/3);
-    //popupWindow.showAsDropDown(more);
+    private void showPopBottom() {
+        PopupWindow popupWindow = new PopupWindow(this);
+        // View content_view = LayoutInflater.from(this).inflate(R.layout.pop_layout1, null);
+        //popupWindow.setContentView(content_view);
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(false);
+        popupWindow.setBackgroundDrawable(null);
+        //  content_view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        //   popupWindow.showAsDropDown(more, -content_view.getMeasuredWidth() + more.getWidth(), -content_view.getMeasuredHeight()/3);
+        //popupWindow.showAsDropDown(more);
 
-}
+    }
+
     public void netIsAvailable(Netwrok netEvent) {
         if (netEvent == Netwrok.NONE) {
             showNoNetDialog();

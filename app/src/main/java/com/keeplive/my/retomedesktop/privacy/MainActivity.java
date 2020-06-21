@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void updateDrawState(TextPaint ds) {
                 //点击事件去掉下划线
-                
+
                 ds.setUnderlineText(false);
             }
         };
