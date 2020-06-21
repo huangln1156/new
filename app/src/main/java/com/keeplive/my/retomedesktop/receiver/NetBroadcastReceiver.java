@@ -9,9 +9,7 @@ import android.widget.Toast;
 import com.keeplive.my.retomedesktop.NetWorkUtil;
 import com.keeplive.my.retomedesktop.Netwrok;
 
-/**
- * Created by androidshuai on 2018/1/5.
- */
+
 
 public class NetBroadcastReceiver extends BroadcastReceiver {
     private OnNetworkChangeLisneter mOnNetworkChangeLisneter;
