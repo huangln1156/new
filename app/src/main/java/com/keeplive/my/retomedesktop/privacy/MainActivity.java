@@ -1,7 +1,9 @@
 package com.keeplive.my.retomedesktop.privacy;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
@@ -15,10 +17,13 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.keeplive.my.retomedesktop.R;
+import com.keeplive.my.retomedesktop.wiget.KeyboardNum;
+import com.keeplive.my.retomedesktop.wiget.SelfDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isCheckPrivacy = false;
     private long versionCode;
     private long currentVersionCode;
+    private KeyboardNum mMKeyboardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,4 +172,43 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    public void showDialog() {
+        View contentView = getLayoutInflater().inflate(R.layout.public_dialog1, null);
+         mMKeyboardView = contentView.findViewById(R.id.keyboard_view);
+        SelfDialog   toDialog = new SelfDialog(this, R.style.MessageDialog);
+        toDialog.setContentView(contentView);
+        new KeyboardNum(this, contentView, et_qqcp_edittext_hint);
+        toDialog.setOnclickOutsideListener(new SelfDialog.OnClickOutsideListener() {
+            @Override
+            public void onOutsideClick() {
+                if (mMKeyboardView != null && mMKeyboardView.getVisibility() == View.VISIBLE) {
+                    mMKeyboardView.setVisibility(View.GONE);
+                }
+            }
+        });
+        toDialog.show();
+        toDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+            }
+        });
+    }
+//                <EditText
+//    android:id="@+id/et_qqcp_edittext"
+//    android:layout_width="match_parent"
+//    android:layout_height="@dimen/dp45"
+//    android:background="@drawable/qqcp_windowd_maincolor_shape"
+//    android:digits="1234567890"
+//    android:hint="@string/qqcp_edittext_hint"
+//    android:inputType="number"
+//    android:lines="1"
+//    android:maxLength="10"
+//    android:paddingStart="@dimen/dp10"
+//    android:textColor="@color/hint"
+//    android:textColorHint="@color/login_exittext_notfocus_textcolor"
+//    android:textCursorDrawable="@drawable/color_cursor"
+//    android:textSize="@dimen/dp15"
+//    android:textStyle="normal"
+//    android:typeface="normal" />normal
+
 }
