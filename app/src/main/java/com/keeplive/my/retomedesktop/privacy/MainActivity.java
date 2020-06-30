@@ -3,7 +3,6 @@ package com.keeplive.my.retomedesktop.privacy;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
@@ -14,10 +13,11 @@ import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -186,12 +186,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        toDialog.show();
         toDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
             }
         });
+        Window window = toDialog.getWindow();
+        if (window != null) {
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams layoutParams = window.getAttributes();
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            window.setAttributes(layoutParams);
+            // 设置Dialog布局位于屏幕底部
+            window.setGravity(Gravity.BOTTOM);
+            layoutParams.y = 16;
+            window.setAttributes(layoutParams);
+        }
+        toDialog.show();
+
     }
 //                <EditText
 //    android:id="@+id/et_qqcp_edittext"
